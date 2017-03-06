@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Doctor Appointment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personalized WebPage">
+  <meta name="keywords" content="Doctor,Orthopaedic,Dental,Cardiologist,General Surgeon, ENT">
+  <link rel="icon" href="favicon.ico" type="image/png" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="jquery-1.9.1.min.js"></script>
+	<script src="validate.js"></script>
+   <style>
+	input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: white;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 160%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    header , footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+  
+    a {
+	  font-size: 150%
+      display: block;
+      text-decoration: none !important;
+      color: black;
+    }
+	
+	ul{
+		display: block;
+	}
+    h1 {
+       color: black;
+    }
+	.ok, .info, .error {
+		padding: 0px 2px;
+	}
+
+	.ok {
+		background: #cfc;
+		border: 2px solid #9c9;
+	}
+
+	.info {
+		background: #ffc;
+		border: 2px solid #cc9;
+	}
+
+	.error {
+		background: #fcc;
+		border: 2px solid #c99;
+	}
+    a:hover{
+       text-decoration: none !important;
+       color: black !important;
+	   background-color: red !important;
+     }
+    img {
+      width: 140px;
+      height: 140px;
+      margin: 10px 10px 0 0;
+      float: left;
+    }
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+	/*input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    }*/
+
+	input[type=text]:focus {
+    width: 100%;
+	}
+  </style>
+</head>
+<body>
+<header>
+	<h2 style="text-align:Center">AppointmentMaster</h2>
+</header>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#About">Account</a></li>
+        <li><a href="#Projects">Appointment History</a></li>
+        <li><a href="#Contact">Favourites</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login.html" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-out"></span> SignOut</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+	<div id="dropDownMenu">Specialization :
+	<br/>
+	<select>
+	<option value="No Selection">No Selection</option>
+	<option value="General">General</option>
+	<option value="ENT">ENT</option>
+	<option value="Paedtric">Paedtric</option>
+	<option value="Orthopaedic">Orthopaedic</option>
+	<option value="Oncologist">Oncologist</option>
+	<option value="Cardiologist">Cardiologist</option>
+	<option value="NeuroSurgeon">Neurosurgeon</option>
+	<option value="Dental">Dental</option>
+	</select>
+	</div>
+	<div id="dropDownMenu">Doctors : 
+	<br/>
+	<select>
+	<option value="No Selection">No Selection</option>
+	<option value="General">General</option>
+	<option value="ENT">ENT</option>
+	<option value="Paedtric">Paedtric</option>
+	<option value="Orthopaedic">Orthopaedic</option>
+	<option value="Oncologist">Oncologist</option>
+	<option value="Cardiologist">Cardiologist</option>
+	<option value="NeuroSurgeon">Neurosurgeon</option>
+	<option value="Dental">Dental</option>
+	</select>
+	</div>
+	<div id="dropDownMenu">Days : 
+	<br/>
+	<select>
+	<option value="No Selection">No Selection</option>
+	<option value="Monday">Monday</option>
+	<option value="Tuesday">Tuesday</option>
+	<option value="Wednesday">Wednesday</option>
+	<option value="Thursday">Thursday</option>
+	<option value="Friday">Friday</option>
+	<option value="Saturday">Saturday</option>
+	<option value="Sunday">Sunday</option>
+	<option value="Dental">Dental</option>
+	</select>
+	</div>
+    </div>
+
+	<div class="col-sm-8 text-left">
+		<form>
+			<input type="text" name="search" placeholder="Search..">
+				
+		</form>
+   		
+		<form id='signup' action='Signup.php' method='post' accept-charset='UTF-8'>
+
+		<br>
+				<h2>Sign Up Form:</h2><br>
+				First name:<input type="text" name="FirstName" id="FirstName"><br>
+								
+				Last name:<input type="text" name="LastName" id="LastName"><br>
+				
+				Date of Birth (MM-DD-YYYY):<input type="text" name="DoB" id="DoB"><br>
+				
+				Email:<input type="text" name="email" id="email"><br>
+				
+				Password:<input type="text" name="password" id="password"><br>
+				
+				SSN:<input type="text" name="SSN" id="SSN"><br>
+				
+				Address:<input type="text" name="Address" id="Address"><br>
+				
+				PhoneNumber:<input type="text" name="PhoneNumber" id="PhoneNumber"><br>
+				
+				<br>
+				<input type='submit' class="btn btn-info btn-lg" name='Submit' value='Submit' /></td>
+		</form>
+    </div>
+
+
+
+      <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p style="text-align:left">Contact: +1 4697211234</p>	
+  <p>Thanks for Visiting!!!!!</p>
+</footer>
+
+</body>
+</html>
+
